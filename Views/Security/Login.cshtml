@@ -1,0 +1,155 @@
+﻿@model AlpataProje.Models.Entity.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <link href="~/Content/login-register.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+    <script src="~/Scripts/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="~/Scripts/bootstrap.js" type="text/javascript"></script>
+    <script src="~/Scripts/login-register.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="main">
+        <img style="width:100%; height:750px" src="https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg" />
+
+        <div class="buttons" style="margin-top:-500px; margin-left:450px">
+            <a href="/Authorized/Login" class="btn btn-dark" style="padding:50px; margin-right:150px; font-weight:bold">Yetkili Servis Giriş</a>
+            <a href="javascript: openLoginModal()" class="btn btn-dark" style="padding:50px; font-weight:bold">Kullanıcı Giriş</a>        
+
+        </div>
+    </div>
+
+    <div class="modal fade login" id="loginModal">
+        <div class="modal-dialog login animated">
+            <div class="modal-content">
+                <div class="modal-header" style="display:inline-block">
+                    
+                        <h4 style="margin-top:2px">Kullanıcı   |</h4>
+                        <h4 class="modal-title">Giriş Yap</h4>
+                    
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="errorMessage" style="color:red; margin-top:-10px; margin-bottom:20px; font-weight:bold">
+                        @ViewBag.Message
+                    </div>
+                    <div class="box">
+                        <div class="content">
+
+                            <div class="error"></div>
+                            <div class="form loginBox">
+                                @using (Html.BeginForm("Login", "Security", FormMethod.Post))
+                                {
+
+
+                                    @Html.LabelFor(m => m.Email)
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "E-posta" })
+                                    @Html.LabelFor(m => m.Password)
+                                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre" })
+                                    <button type="submit" class="btn btn-default btn-login" style="margin-top:20px" onclick="loginAjax()">Giriş Yap</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="content registerBox" style="display:none;">
+                            <div class="form">
+                                <div class="leftSide">
+                                    <form method="post" html="{:multipart=>true}" data-remote="true" action="" accept-charset="UTF-8">
+                                        <input id="name" class="form-control" type="text" placeholder="Ad" name="name">
+                                        <input id="surname" class="form-control" type="text" placeholder="Soyad" name="surname">
+                                        <input id="email" class="form-control" type="text" placeholder="E-posta" name="email">
+                                        <input id="username" class="form-control" type="text" placeholder="Kullanıcı Adı" name="username">
+                                        <input id="password" class="form-control" type="password" placeholder="Şifre" name="password">
+                                        <input id="cellphone" class="form-control" type="text" placeholder="Cep Telefon Numarası" name="cellphone">
+                                        <input id="homephone" class="form-control" type="text" placeholder="Ev Telefon Numarası" name="homephone">
+                                        <input id="workphone" class="form-control" type="text" placeholder="İş Telefon Numarası" name="workphone">
+
+                                </div>
+
+                                <div class="rightSide">
+                                    <select class="form-control" id="gender" name="gender" style="color:dimgray;margin-bottom:5px">
+                                        <option>Cinsiyet</option>
+                                        <option>Kadın</option>
+                                        <option>Erkek</option>
+                                    </select>
+                                    <input id="tc" class="form-control" type="text" placeholder="TC (Opsiyonel)" name="tc">
+                                    <input id="profession" class="form-control" type="text" placeholder="Meslek" name="profession">
+                                    <input id="city" class="form-control" type="text" placeholder="İl" name="city">
+                                    <input id="county" class="form-control" type="text" placeholder="İlçe" name="county">
+                                    <input id="adress" class="form-control" type="text" placeholder="Adres" name="adress">
+
+                                    <div style="margin-left:10px" class="custom-control custom-checkbox mb-3">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1" onclick="EnableDisableTextBox(this)">
+                                        <label class="custom-control-label" for="customCheck1">Şirket Aracı mı ?</label>
+                                    </div>
+
+                                    <input id="companyname" class="form-control" type="text" placeholder="Şirket Adı" name="companyname" disabled="disabled">
+                                    <input id="companyadress" class="form-control" type="text" placeholder="Şirket Adresi" name="companyadress" disabled="disabled">
+
+
+                                </div>
+
+
+                                <input class="btn btn-default btn-register" type="button" value="Kayit Ol" name="commit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="forgot login-footer">
+                        <span>
+                            <a href="/User/AddUser">Kayıt Ol</a>
+                            <a href="/Authorized/Login" style="margin-left:100px">Yetkili Servis Giriş</a>
+                        </span>
+                    </div>
+                    <div class="forgot register-footer" style="display:none">
+                        <span>Hesabın var mı?</span>
+                        <a href="javascript: showLoginForm();">Giris Yap</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            openLoginModal();
+        });
+
+        function EnableDisableTextBox(customCheck1) {
+            var companyname = document.getElementById("companyname");
+            companyname.disabled = customCheck1.checked ? false : true;
+            if (!companyname.disabled) {
+                companyname.focus();
+            }
+            var companyadress = document.getElementById("companyadress");
+            companyadress.disabled = customCheck1.checked ? false : true;
+            if (!companyadress.disabled) {
+                companyname.focus();
+            }
+        }
+    </script>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.js"></script>
+</body>
+</html>

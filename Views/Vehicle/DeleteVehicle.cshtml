@@ -1,0 +1,120 @@
+﻿@model AlpataProje.Models.Entity.Vehicle
+
+@{
+    ViewBag.Title = "DeleteVehicle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h3>Aracı silmek istiyor musunuz ?</h3>
+<div>
+    @using (Html.BeginForm("Delete", "Vehicle", FormMethod.Post))
+    {
+        @Html.HiddenFor(e => e.VehicleID)
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Brand)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Marque)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Marque)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MotorType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MotorType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.VehicleType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VehicleType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Year)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Year)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Km)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Km)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FuelType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FuelType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GearType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GearType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Plate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Plate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.VehicleOwnerName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VehicleOwnerName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.VehicleOwnerSurname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VehicleOwnerSurname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastCare)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastCare)
+            </dd>
+
+        </dl>
+            <div class="form-actions no-color" style="margin-bottom:50px">
+                <input type="submit" value="Sil" class="btn btn-danger" /> |
+                @Html.ActionLink("Geri Dön", "Index")
+            </div>      
+    }
+    </div>

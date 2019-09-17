@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AlpataProje.Models.Entity.CareRequests>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Taleplerim</h2>
+
+<p>
+    @Html.ActionLink("Yeni Talep Oluştur", "AddRequest")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Sil", "DeleteRequest", new { RequestId=item.RequestID })
+        </td>
+    </tr>
+}
+
+</table>

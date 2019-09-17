@@ -1,0 +1,103 @@
+﻿@model IEnumerable<AlpataProje.Models.Entity.Vehicle>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Araçlarım</h2>
+<style>
+    table.table{
+        width:100px;
+    }
+</style>
+<p>
+    @Html.ActionLink("Araç Ekle", "AddVehicle")
+</p>
+<table class="table" style="margin-left:-195px; background-color:#f5f5f5; width:1500px">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MotorType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Km)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuelType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GearType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Plate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleOwnerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleOwnerSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastCare)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotorType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Km)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GearType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleOwnerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleOwnerSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastCare)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "EditVehicle", new { VehicleId=item.VehicleID }) |
+            @Html.ActionLink("Sil", "DeleteVehicle", new { VehicleId=item.VehicleID })
+        </td>
+    </tr>
+}
+
+</table>

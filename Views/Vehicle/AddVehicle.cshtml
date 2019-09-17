@@ -1,0 +1,183 @@
+﻿@model AlpataProje.Models.Entity.Vehicle
+
+@{
+    ViewBag.Title = "AddVehicle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Araç Ekle</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Brand, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Brand, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Marque, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Marque, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Marque, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MotorType, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MotorType, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MotorType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @{
+            List<SelectListItem> listItems = new List<SelectListItem>();
+            listItems.Add(new SelectListItem
+            {
+                Text = "Ticari",
+                Value = "Ticari",
+                Selected = true
+
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "Binek",
+                Value = "Binek",
+            });
+
+        }
+        @Html.LabelFor(model => model.VehicleType, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.VehicleType, listItems, "-- Araç Tipi --", new { htmlAttributes = new { @class = "dropdown" } })
+            @Html.ValidationMessageFor(model => model.VehicleType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @{
+            List<SelectListItem> listItems1 = new List<SelectListItem>();
+            listItems1.Add(new SelectListItem
+            {
+                Text = "Benzin",
+                Value = "Benzin",
+                Selected = true
+
+            });
+            listItems1.Add(new SelectListItem
+            {
+                Text = "Dizel",
+                Value = "Dizel",
+            });
+             listItems1.Add(new SelectListItem
+            {
+                Text = "LPG",
+                Value = "LPG",
+            });
+        }
+        @Html.LabelFor(model => model.FuelType, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.FuelType, listItems1, "-- Yakıt Tipi --", new { htmlAttributes = new { @class = "dropdown" } })
+            @Html.ValidationMessageFor(model => model.FuelType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @{
+            List<SelectListItem> listItems2 = new List<SelectListItem>();
+            listItems2.Add(new SelectListItem
+            {
+                Text = "Otomatik",
+                Value = "Otomatik",
+                Selected = true
+
+            });
+            listItems2.Add(new SelectListItem
+            {
+                Text = "Manuel",
+                Value = "Manuel",
+            });
+
+        }
+        @Html.LabelFor(model => model.GearType, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.GearType, listItems2, "-- Vites Tipi --", new { htmlAttributes = new { @class = "dropdown" } })
+            @Html.ValidationMessageFor(model => model.GearType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Plate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Plate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Plate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.VehicleOwnerName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.VehicleOwnerName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.VehicleOwnerName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.VehicleOwnerSurname, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.VehicleOwnerSurname, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.VehicleOwnerSurname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @{
+            List<SelectListItem> listItems3 = new List<SelectListItem>();
+            listItems3.Add(new SelectListItem
+            {
+                Text = "Yetkili Servis",
+                Value = "Yetkili Servis",
+                Selected = true
+
+            });
+            listItems3.Add(new SelectListItem
+            {
+                Text = "Özel Servis",
+                Value = "Özel Servis",
+            });
+
+        }
+        @Html.LabelFor(model => model.LastCare, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.LastCare, listItems3, "-- Son Bakım Yeri --", new { htmlAttributes = new { @class = "dropdown" } })
+            @Html.ValidationMessageFor(model => model.LastCare, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Ekle" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+

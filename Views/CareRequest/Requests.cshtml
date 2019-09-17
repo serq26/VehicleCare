@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AlpataProje.Models.Entity.CareRequests>
+
+@{
+    ViewBag.Title = "Requests";
+    Layout = "~/Views/Shared/_LayoutAuthorized.cshtml";
+}
+
+<h2>Bekleyen Talepler</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestStatus)            
+        </td>
+        <td>
+            @Html.ActionLink("Onayla", "Confirm", new { RequestId=item.RequestID }) 
+        </td>
+    </tr>
+}
+
+</table>

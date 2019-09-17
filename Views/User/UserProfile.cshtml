@@ -1,0 +1,122 @@
+﻿
+@model AlpataProje.Models.Entity.User
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UserProfile</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomePhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkPhone)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.CellPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profession)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.County)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCompanyCar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyAddress)
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.HomePhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.CellPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.WorkPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.TC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Profession)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.County)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.IsCompanyCar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.CompanyAddress)
+        </td>
+    </tr>
+
+   
+</table>
+

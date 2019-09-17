@@ -1,0 +1,159 @@
+﻿@model AlpataProje.Models.Entity.User
+
+@{
+    ViewBag.Title = "DeleteUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>Profilinizi silmek istiyor musunuz ?</h3>
+<div>
+    @using (Html.BeginForm("Delete", "User", FormMethod.Post))
+    {
+        @Html.HiddenFor(e => e.UserID)
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Surname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Surname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Username)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HomePhone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HomePhone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.WorkPhone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.WorkPhone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CellPhone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CellPhone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TC)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TC)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Profession)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Profession)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.County)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.County)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsCompanyCar)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsCompanyCar)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CompanyName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CompanyAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CompanyAddress)
+            </dd>
+
+        </dl>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Geri Dön", "Index")
+        </div>
+    }
+</div>
