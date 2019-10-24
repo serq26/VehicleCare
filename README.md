@@ -21,6 +21,8 @@ Asp.Net MVC | EntityFramework Code First | Generic Repository | Bootstrap
 
 <img src="Screenshots/9.PNG">  
 
+- Yetkili Servis Tarafı (Authorized Side) 
+
 <img src="Screenshots/10.PNG">  
 
 <img src="Screenshots/11.PNG">  
